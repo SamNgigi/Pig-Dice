@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 body{
   font-family: 'Montserrat', sans-serif;
+  background: linear-gradient(to right, #66ccff, #ffcccc);
 }
 .header h1{
   font-size: 75px;
