@@ -2,6 +2,10 @@
 body{
   font-family: 'Montserrat', sans-serif;
 }
+.header h1{
+  font-size: 75px;
+}
+/*DICE ANIMATION*/
 .wrapper {
   perspective: 10000px;
   perspective-origin: 50% 100px;
@@ -9,18 +13,12 @@ body{
   height: 111px;
   margin: 2px;
   position: absolute;
-  -webkit-animation: mymove linear 1 8s;
-     -moz-animation: mymove linear 1 8s;
-       -o-animation: mymove linear 1 8s;
-          animation: mymove linear 1 8s;
+
 }
 
 .wrapper2 {
   top: 130px;
-  -webkit-animation: mymove2 linear 1 8s;
-     -moz-animation: mymove2 linear 1 8s;
-       -o-animation: mymove2 linear 1 8s;
-          animation: mymove2 linear 1 8s;
+
 }
 
 .die
@@ -29,18 +27,18 @@ width:inherit;
 height:inherit;
 position:absolute;
 transform-style: preserve-3d;
-  -webkit-animation: spin 10s linear 1;
-     -moz-animation: spin 10s linear 1;
-       -o-animation: spin 10s linear 1;
-          animation: spin 10s linear 1;
+  -webkit-animation: spin 30s linear 3;
+     -moz-animation: spin 30s linear 3;
+       -o-animation: spin 30s linear 3;
+          animation: spin 30s linear 3;
 
 }
 
 .die2 {
-  -webkit-animation: spin2 10s linear 1;
-     -moz-animation: spin2 10s linear 1;
-       -o-animation: spin2 10s linear 1;
-          animation: spin2 10s linear 1;
+  -webkit-animation: spin2 30s linear 3;
+     -moz-animation: spin2 30s linear 3;
+       -o-animation: spin2 30s linear 3;
+          animation: spin2 30s linear 3;
 }
 
 .face {
@@ -146,16 +144,6 @@ transform-style: preserve-3d;
   }
 }
 
-@-webkit-keyframes mymove
-{
-  0% {
-    left: -200px;
-  }
-  100% {
-    left:2400px;
-  }
-}
-
 /* mymove2 animation */
 
 @keyframes mymove2 {
@@ -166,13 +154,4 @@ transform-style: preserve-3d;
     left:2200px;
   }
 }
-
-@-webkit-keyframes mymove2
-{
-  0% {
-    left: -400px;
-  }
-  100% {
-    left:2200px;
-  }
-}
+/*DICE ANIMATION END*/
