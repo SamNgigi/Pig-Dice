@@ -148,6 +148,10 @@ transform-style: preserve-3d;
   }
 }
 /*DICE ANIMATION END*/
+.banner{
+  background: linear-gradient(to right, #b3ffff, #ffe6ff);
+
+}
 /*GAMING SECTION*/
 .gaming-panel{
   background: linear-gradient(to right, #ffffcc, #ccffff);
@@ -183,19 +187,19 @@ transform-style: preserve-3d;
   display: block;
 }
 
-#rules{
-  margin: 15px;
-  font-size: 20px;
-  color:#ff1a75;
-}
+
 #new-game{
-  margin: 15px;
   font-size: 20px;;
   color:#ff1a75;
 }
 #roll-dice{
-  margin: 15px;
-  font-size: 20px;;
+  margin-left: 150px;
+  margin-right: 150px;
+  font-size: 20px;
+  color:#ff1a75;
+}
+#rules{
+  font-size: 20px;
   color:#ff1a75;
 }
 #rules:hover{
@@ -218,4 +222,8 @@ transform-style: preserve-3d;
     -webkit-transition: all 200ms ease-in;
     -webkit-transform: scale(1.2);
     opacity: 0.9;
+}
+.design-tu{
+  background: linear-gradient(to right, #b3ffff, #ffe6ff);
+  height: 100px;
 }
