@@ -13,8 +13,6 @@ body{
   width: 111px;
   height: 111px;
   margin: 2px;
-  position: absolute;
-
 }
 
 .wrapper2 {
@@ -29,17 +27,11 @@ height:inherit;
 position:absolute;
 transform-style: preserve-3d;
   -webkit-animation: spin 30s linear 3;
-     -moz-animation: spin 30s linear 3;
-       -o-animation: spin 30s linear 3;
-          animation: spin 30s linear 3;
-
 }
 
 .die2 {
   -webkit-animation: spin2 30s linear 3;
-     -moz-animation: spin2 30s linear 3;
-       -o-animation: spin2 30s linear 3;
-          animation: spin2 30s linear 3;
+
 }
 
 .face {
@@ -193,22 +185,22 @@ transform-style: preserve-3d;
 #rules{
   position: absolute;
   top:450px;
-  left:650px;
-  font-size: 30px;
+  left:420px;
+  font-size: 20px;
   color:#ff1a75;
 }
 #new-game{
   position: absolute;
   top:657px;
-  left:610px;
-  font-size: 30px;
+  left:390px;
+  font-size: 20px;;
   color:#ff1a75;
 }
 #roll-dice{
   position: absolute;
   top:880px;
-  left:630px;
-  font-size: 30px;
+  left:410px;
+  font-size: 20px;;
   color:#ff1a75;
 }
 #rules:hover{
