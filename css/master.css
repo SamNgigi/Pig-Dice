@@ -151,31 +151,32 @@ transform-style: preserve-3d;
 /*GAMING SECTION*/
 .gaming-panel{
   background: linear-gradient(to right, #ffffcc, #ccffff);
-  height: 900px;
+  height: 700px;
 
 }
 .player1{
-  height: 800px;
+  height: 600px;
   border-radius: 5px;
   box-shadow: 0px 3px 7px rgba(0, 0, 0, 0.8);
 }
 .player2{
-  height: 800px;
+  height: 600px;
   border-radius: 5px;
   box-shadow: 0px 3px 7px rgba(0, 0, 0, 0.8);
 }
 .player1-score,.player2-score{
   text-align: center;
-  font-size: 150px;
+  font-size: 100px;
   font-weight: 100px;
 }
 .active1-box, .active2-box{
   text-align: center;
-  font-size: 40px;
-  margin-top: 250px;
-  height: 150px;
+  font-size: 30px;
+  margin-top: 200px;
+  height: 130px;
   background-color: #00ffff;
   color: #fff;
+  box-shadow: 0px 3px 7px rgba(0, 0, 0, 0.8);
 }
 /*Control panel*/
 .control-panel{
@@ -183,23 +184,17 @@ transform-style: preserve-3d;
 }
 
 #rules{
-  position: absolute;
-  top:450px;
-  left:420px;
+  margin: 15px;
   font-size: 20px;
   color:#ff1a75;
 }
 #new-game{
-  position: absolute;
-  top:657px;
-  left:390px;
+  margin: 15px;
   font-size: 20px;;
   color:#ff1a75;
 }
 #roll-dice{
-  position: absolute;
-  top:880px;
-  left:410px;
+  margin: 15px;
   font-size: 20px;;
   color:#ff1a75;
 }
