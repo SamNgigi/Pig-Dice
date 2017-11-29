@@ -25,7 +25,13 @@ var diceimgs = [
 ];
 
 // TODO: Start with all the functions that we will use in the program
-var dice_face = Math.floor(Math.random()*6)+1;
+
+// Game State function.
+if(game_active){
+  //1. Random Number
+  var dice_face = Math.floor(Math.random()*6)+1;
+}
+
 // FRONT END
 $(document).ready(function() {
   //click function for "Roll Dice" button
