@@ -23,6 +23,7 @@ $(document).ready(function() {
   $("#roll-dice").click(function() {
      alert("Roll dice button Working! You rolled " + dice_face + ".");
     //  $("#theDice").prepend('<img id="#dice-faces" src="images/Dice/two.png" />')
+    //Below code links Jquery to images
     var diceFace = $("#diceFaces").attr("src", "images/Dice/two.png");
   })
   //click function for "New Game" button
