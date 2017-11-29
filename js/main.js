@@ -5,15 +5,24 @@
  var game_active = true;
 // our dice images
 
-var diceimgs = {
-     diceimg01:"images/Dice/one.png"
-     diceimg02:"images/Dice/two.png"
-     diceimg03:"images/Dice/three.png"
-     diceimg04:"images/Dice/four.png"
-     diceimg05:"images/Dice/five.png"
+/*
+var diceimgs = [
+     diceimg01:"images/Dice/one.png",
+     diceimg02:"images/Dice/two.png",
+     diceimg03:"images/Dice/three.png",
+     diceimg04:"images/Dice/four.png",
+     diceimg05:"images/Dice/five.png",
      diceimg06:"images/Dice/six.png"
-};
-
+];
+*/
+var diceimgs = [
+     "images/Dice/one.png",
+     "images/Dice/two.png",
+     "images/Dice/three.png",
+     "images/Dice/four.png",
+     "images/Dice/five.png",
+     "images/Dice/six.png"
+];
 
 // TODO: Start with all the functions that we will use in the program
 var dice_face = Math.floor(Math.random()*6)+1;
@@ -24,7 +33,9 @@ $(document).ready(function() {
      alert("Roll dice button Working! You rolled " + dice_face + ".");
     //  $("#theDice").prepend('<img id="#dice-faces" src="images/Dice/two.png" />')
     //Below code links Jquery to images
-    var diceFace = $("#diceFaces").attr("src", "images/Dice/two.png");
+    // var diceFace = $("#diceFaces").attr("src", "images/Dice/two.png");
+    //Below is links the dice image to the random number.
+    var diceFace = $("#diceFaces").attr("src", diceimgs[dice_face-1]).appendTo("#diceFaces");
   })
   //click function for "New Game" button
   $("#new-game").click(function () {
