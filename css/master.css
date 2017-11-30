@@ -173,7 +173,7 @@ transform-style: preserve-3d;
 }
 .active1-box, .active2-box{
   text-align: center;
-  font-size: 30px;
+  font-size: 40px;
   margin-top: 200px;
   height: 180px;
   background-color: #00ffff;
@@ -198,7 +198,7 @@ transform-style: preserve-3d;
   font-size: 20px;
 }
 .active-score1,.active-score2{
-  font-size: 38px;
+  font-size: 55px;
 }
 /*Control panel*/
 .control-panel{
