@@ -3,7 +3,6 @@ var fixed_scores = [0, 0];
 var flash_score = 0;
 var active_player = 1;
 var game_active = true;
-var score1 = parseInt($("#score-1").text());
 
 // our dice images
 var diceimgs = [
@@ -14,6 +13,8 @@ var diceimgs = [
   "images/Dice/five.png",
   "images/Dice/six.png"
 ];
+
+
 
 // TODO: Disables roll button
 //the button , the duration of disabling
@@ -50,6 +51,7 @@ var rollMessage = function() {
 
 // FRONT END
 $(document).ready(function() {
+
   //click function for "Roll Dice" button
   $("#roll-dice").click(function() {
 
@@ -79,19 +81,15 @@ $(document).ready(function() {
       }
     }
   });
-  //click function for "New Game" button
-  $("#new-game").click(function() {
-    alert("New Game button Working!");
-  });
   // Trying to combine both hold functionallity into one.
-  $(".hold").click(function() {
+  $("#hold"+active_player).click(function() {
     // alert("United hold working");
     if(game_active){
       score_index = active_player - 1;
       fixed_scores[score_index] += flash_score;
       $("#score-"+active_player).text(fixed_scores[score_index]);
 
-      if (fixed_scores[score_index]>= 100) {
+      if (fixed_scores[score_index]>= 10) {
         $(".overlay" + active_player).css("background-color","#00cc00");
         $("#overlayTexta"+active_player).text("Player"+active_player);
         $("#overlayTextb"+active_player).text("You Win!!!");
@@ -107,6 +105,11 @@ $(document).ready(function() {
         nextPlayer();
       }
     }
+
+  });
+  //click function for "New Game" button
+  $("#new-game").click(function() {
+    // alert("New Game button Working!");
 
   });
 
