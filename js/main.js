@@ -90,6 +90,16 @@ $(document).ready(function() {
       score_index = active_player - 1;
       fixed_scores[score_index] += flash_score;
       $("#score-"+active_player).text(fixed_scores[score_index]);
+
+      if (fixed_scores[score_index]>= 10) {
+        $(".overlay" + active_player).css("background-color","#00cc00")
+        $("#overlayTexta"+active_player).text("Player"+active_player);
+        $("#overlayTextb"+active_player).text("You Win!!!");
+        $(".overlay" + active_player).show();
+
+      } else {
+        nextPlayer();
+      }
     }
 
   });
