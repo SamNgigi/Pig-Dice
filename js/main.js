@@ -1,6 +1,6 @@
 // Global-variables. These are the default variables of our variables
-var scores = [0, 0];
-var held_score = 0;
+var fixed_scores = [0, 0];
+var flash_score = 0;
 var active_player = 1;
 var game_active = true;
 var score1 = parseInt($("#score-1").text());
@@ -16,7 +16,7 @@ var diceimgs = [
 ];
 
 // TODO: Disables roll button
-                //the button , the duration of disabling
+//the button , the duration of disabling
 var disableButton = function(btn, time) {
   //disable roll
   btn.disabled = true;
@@ -26,12 +26,12 @@ var disableButton = function(btn, time) {
 }
 
 // TODO:Next Player function
-var nextPlayer = function () {
+var nextPlayer = function() {
 
   if (active_player === 1) {
     active_player = 2;
     $(".overlay2").hide();
-  }else{
+  } else {
     active_player = 1;
     $(".overlay1").hide();
   }
@@ -40,8 +40,8 @@ var nextPlayer = function () {
 
 }
 // TODO: Roll message show.
-var rollMessage = function () {
-  $(".overlay"+active_player).show();
+var rollMessage = function() {
+  $(".overlay" + active_player).show();
 
 }
 // TODO: Game is Active function
@@ -52,6 +52,7 @@ var rollMessage = function () {
 $(document).ready(function() {
   //click function for "Roll Dice" button
   $("#roll-dice").click(function() {
+
     if (game_active) {
       //1. Random Number.
       var dice_number = Math.floor(Math.random() * 6) + 1;
@@ -63,16 +64,16 @@ $(document).ready(function() {
       if (dice_number !== 1) {
 
         //Add the dice numbers to current scores if one is not rolled
-        held_score += dice_number;
+        flash_score += dice_number;
 
         // TODO: Update the player current scores
-        $("#activeScore"+active_player).text(held_score);
+        $("#activeScore" + active_player).text(flash_score);
       } else {
         // TODO: Disable function for roll button when 1 is rolled
         disableButton($("#roll-dice"), 5000);
         alert("You Rolled One");
-        held_score = 0;
-        $("#activeScore"+active_player).text(held_score);
+        flash_score = 0;
+        $("#activeScore" + active_player).text(flash_score);
         rollMessage();
         nextPlayer();
       }
@@ -82,14 +83,25 @@ $(document).ready(function() {
   $("#new-game").click(function() {
     alert("New Game button Working!");
   });
+  // Trying to combine both hold functionallity into one.
+  $(".hold").click(function() {
+    alert("United hold working");
+    if(game_active){
+      score_index = active_player - 1;
+      fixed_scores[score_index] += flash_score;
+      $("#score-"+active_player).text(fixed_scores[score_index]);
+    }
+
+  });
   // click function for player1 "Hold" button.
   $("#hold1").click(function() {
     alert("Hold player1 button Working!");
-    active_player === 2;
+
   });
   // click function for player2 "Hold" button.
   $("#hold2").click(function() {
     alert("Hold player2 button Working!");
-    active_player === 1;
+
   });
+
 });
