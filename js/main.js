@@ -35,8 +35,9 @@ var nextPlayer = function () {
     active_player = 1;
     $(".overlay1").hide();
   }
-  held_score = 0;
-  alert("Its Player" + active_player+"'s turn!");
+  // held_score = 0;
+  // alert("Its Player" + active_player+"'s turn!");
+
 }
 // TODO: Roll message show.
 var rollMessage = function () {
@@ -65,11 +66,13 @@ $(document).ready(function() {
         held_score += dice_number;
 
         // TODO: Update the player current scores
-        // $("#activeScore"+active_player).text(held_score);
+        $("#activeScore"+active_player).text(held_score);
       } else {
         // TODO: Disable function for roll button when 1 is rolled
         disableButton($("#roll-dice"), 5000);
         alert("You Rolled One");
+        held_score = 0;
+        $("#activeScore"+active_player).text(held_score);
         rollMessage();
         nextPlayer();
       }
