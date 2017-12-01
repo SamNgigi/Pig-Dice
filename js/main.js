@@ -24,57 +24,54 @@ var disableButton = function(btn, time) {
     btn.disabled = false;
   }, time)
 }
-// TODO: Roll message hide.
-var rollMessage = function functionName() {
-  $("#overlay"+active_player).show()
-}
 
-// Game State function.
-if (game_active) {
-  //1. Random Number.
-  var dice_number = Math.floor(Math.random() * 6) + 1;
+// TODO:Next Player function
+var nextPlayer = function () {
 
-  //2. Display dice result.
-  var diceFace = $("#diceFaces").attr("src", diceimgs[dice_number - 1]).appendTo("#diceFaces");
-  //3. Display result in current active player box.
-  if (dice_number !== 1) {
-    //Add the dice numbers to current scores if one is not rolled
-    held_score += dice_number;
-    // $("#activeScore"+active_player).text(held_score);
-  } else {
-    // TODO: Disable function for roll button when 1 is rolled
-    disableButton($("#roll-dice"), 5000);
-    alert("You Rolled One");
-    if (active_player === 1) {
-      active_player = 2;
-    } else if (active_player === 2) {
-      active_player = 1;
-    }
+  if (active_player === 1) {
+    active_player = 2;
+    $(".overlay2").hide();
+  }else{
+    active_player = 1;
+    $(".overlay1").hide();
   }
+  held_score = 0;
+  alert("Its Player" + active_player+"'s turn!");
 }
+// TODO: Roll message show.
+var rollMessage = function () {
+  $(".overlay"+active_player).show();
+
+}
+// TODO: Game is Active function
+
 
 
 // FRONT END
 $(document).ready(function() {
   //click function for "Roll Dice" button
   $("#roll-dice").click(function() {
-    // alert("Roll Dice button Working!");
-    $("#diceFaces").show();
-    var dice_number = Math.floor(Math.random() * 6) + 1;
+    if (game_active) {
+      //1. Random Number.
+      var dice_number = Math.floor(Math.random() * 6) + 1;
 
-    var diceFace = $("#diceFaces").attr("src", diceimgs[dice_number-1]).appendTo("#diceFaces");
+      //2. Display dice result.
+      var diceFace = $("#diceFaces").attr("src", diceimgs[dice_number - 1]).appendTo("#diceFaces");
+      $("#diceFaces").show();
+      //3. Display result in current active player box.
+      if (dice_number !== 1) {
 
-    if(dice_number !== 1){
-       held_score += dice_number;
+        //Add the dice numbers to current scores if one is not rolled
+        held_score += dice_number;
+
+        // TODO: Update the player current scores
         // $("#activeScore"+active_player).text(held_score);
-    }else{
-      rollMessage();
-      disableButton($("#roll-dice"),1000);
-      // alert("You Rolled One");
-      if(active_player === 1){
-        active_player = 2;
-      }else if(active_player === 2){
-        active_player = 1;
+      } else {
+        // TODO: Disable function for roll button when 1 is rolled
+        disableButton($("#roll-dice"), 5000);
+        alert("You Rolled One");
+        rollMessage();
+        nextPlayer();
       }
     }
   });
