@@ -85,32 +85,28 @@ $(document).ready(function() {
   });
   // Trying to combine both hold functionallity into one.
   $(".hold").click(function() {
-    alert("United hold working");
+    // alert("United hold working");
     if(game_active){
       score_index = active_player - 1;
       fixed_scores[score_index] += flash_score;
       $("#score-"+active_player).text(fixed_scores[score_index]);
 
-      if (fixed_scores[score_index]>= 10) {
-        $(".overlay" + active_player).css("background-color","#00cc00")
+      if (fixed_scores[score_index]>= 100) {
+        $(".overlay" + active_player).css("background-color","#00cc00");
         $("#overlayTexta"+active_player).text("Player"+active_player);
         $("#overlayTextb"+active_player).text("You Win!!!");
         $(".overlay" + active_player).show();
+        game_active = false;
 
       } else {
+        // The held player display.
+        $(".overlay" + active_player).css("background-color","#d2ff4d");
+        $("#overlayTexta"+active_player).text("");
+        $("#overlayTextb"+active_player).text("");
+        $(".overlay" + active_player).show();
         nextPlayer();
       }
     }
-
-  });
-  // click function for player1 "Hold" button.
-  $("#hold1").click(function() {
-    alert("Hold player1 button Working!");
-
-  });
-  // click function for player2 "Hold" button.
-  $("#hold2").click(function() {
-    alert("Hold player2 button Working!");
 
   });
 
