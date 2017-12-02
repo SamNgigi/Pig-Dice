@@ -31,11 +31,14 @@ var nextPlayer = function() {
 
   if (active_player === 1) {
     active_player = 2;
+    flash_score = 0;
     $(".overlay2").hide();
   } else {
     active_player = 1;
+    flash_score = 0;
     $(".overlay1").hide();
   }
+
   // held_score = 0;
   // alert("Its Player" + active_player+"'s turn!");
 
@@ -43,7 +46,7 @@ var nextPlayer = function() {
 // TODO: Roll message show.
 var rollMessage = function() {
   $(".overlay" + active_player).show();
-
+  $("#activeScore" + active_player).text("0");
 }
 // TODO: Game is Active function
 
@@ -51,7 +54,6 @@ var rollMessage = function() {
 
 // FRONT END
 $(document).ready(function() {
-
   //click function for "Roll Dice" button
   $("#roll-dice").click(function() {
 
@@ -74,43 +76,41 @@ $(document).ready(function() {
         // TODO: Disable function for roll button when 1 is rolled
         disableButton($("#roll-dice"), 5000);
         alert("You Rolled One");
-        flash_score = 0;
-        $("#activeScore" + active_player).text(flash_score);
         rollMessage();
         nextPlayer();
       }
     }
   });
-  // Trying to combine both hold functionallity into one.
-  $("#hold"+active_player).click(function() {
-    // alert("United hold working");
-    if(game_active){
+
+
+  $(".hold").click(function() {
+    // alert("working");
+    if (game_active) {
+      // When the score is held the flash_scores are updated to the fixed scores
       score_index = active_player - 1;
       fixed_scores[score_index] += flash_score;
-      $("#score-"+active_player).text(fixed_scores[score_index]);
-
-      if (fixed_scores[score_index]>= 10) {
-        $(".overlay" + active_player).css("background-color","#00cc00");
-        $("#overlayTexta"+active_player).text("Player"+active_player);
-        $("#overlayTextb"+active_player).text("You Win!!!");
+      //Update the UI
+      $("#score-" + active_player).text(fixed_scores[score_index]);
+      //  The working
+      if (fixed_scores[score_index] >= 10) {
+        $(".overlay" + active_player).css("background-color", "#00cc00");
+        $("#overlayTexta" + active_player).text("Player" + active_player);
+        $("#overlayTextb" + active_player).text("You Win!!!");
         $(".overlay" + active_player).show();
         game_active = false;
-
       } else {
-        // The held player display.
-        $(".overlay" + active_player).css("background-color","#d2ff4d");
-        $("#overlayTexta"+active_player).text("");
-        $("#overlayTextb"+active_player).text("");
-        $(".overlay" + active_player).show();
+
         nextPlayer();
       }
+
     }
 
   });
+
+
+
   //click function for "New Game" button
   $("#new-game").click(function() {
-    // alert("New Game button Working!");
-
+    alert("New Game button Working!");
   });
-
 });
