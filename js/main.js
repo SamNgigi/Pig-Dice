@@ -6,12 +6,12 @@ var game_active = true;
 
 // our dice images
 var diceimgs = [
-  "imgs/Dice/one.png",
-  "imgs/Dice/two.png",
-  "imgs/Dice/three.png",
-  "imgs/Dice/four.png",
-  "imgs/Dice/five.png",
-  "imgs/Dice/six.png"
+  "images/Dice/one.png",
+  "images/Dice/two.png",
+  "images/Dice/three.png",
+  "images/Dice/four.png",
+  "images/Dice/five.png",
+  "images/Dice/six.png"
 ];
 
 
