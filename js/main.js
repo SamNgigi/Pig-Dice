@@ -45,13 +45,28 @@ var nextPlayer = function() {
 }
 // TODO: Roll message show.
 var rollMessage = function() {
+  $("#overlayTexta" + active_player).text("You rolled One!!");
+  $("#overlayTextb" + active_player).text("");
+  $(".overlay" + active_player).css("background-color","#cc0000");
   $(".overlay" + active_player).show();
   $("#activeScore" + active_player).text("0");
 }
-// TODO: Game is Active function
+// TODO:gameReset function.
 
+var gameReset = function () {
 
-
+    fixed_scores = [0, 0];
+    flash_score = 0;
+    active_player = 1;
+    game_active = true;
+    $(".overlay2").hide();
+    $(".overlay1").hide();
+    $("#activeScore1").text("0");
+    $("#activeScore2").text("0");
+    $("#score-1").text("0");
+    $("#score-2").text("0");
+}
+gameReset();
 // FRONT END
 $(document).ready(function() {
   //click function for "Roll Dice" button
@@ -91,15 +106,20 @@ $(document).ready(function() {
       fixed_scores[score_index] += flash_score;
       //Update the UI
       $("#score-" + active_player).text(fixed_scores[score_index]);
-      //  The working
+      //  The winning
       if (fixed_scores[score_index] >= 10) {
+        // the Winning display
         $(".overlay" + active_player).css("background-color", "#00cc00");
         $("#overlayTexta" + active_player).text("Player" + active_player);
         $("#overlayTextb" + active_player).text("You Win!!!");
         $(".overlay" + active_player).show();
         game_active = false;
       } else {
-
+        // the hold display
+        $(".overlay" + active_player).css("background-color","#d2ff4d");
+        $("#overlayTexta"+active_player).text("");
+        $("#overlayTextb"+active_player).text("");
+        $(".overlay" + active_player).show();
         nextPlayer();
       }
 
@@ -111,6 +131,7 @@ $(document).ready(function() {
 
   //click function for "New Game" button
   $("#new-game").click(function() {
-    alert("New Game button Working!");
+    // alert("New Game button Working!");
+    gameReset();
   });
 });
